@@ -20,7 +20,8 @@
     "plugins": [
         "react",
         "@typescript-eslint",
-        "react-hooks"
+        "react-hooks",
+        "@emotion"
     ],
     "rules": {
         "no-use-before-define": "off",
@@ -70,7 +71,8 @@
                 "namedComponents": "function-declaration",
                 "unnamedComponents": "arrow-function"
             }
-        ]
+        ],
+        "@emotion/jsx-import": "error"
     },
     "settings": {
         "import/resolver": {

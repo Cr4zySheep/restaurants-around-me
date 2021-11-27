@@ -1,10 +1,17 @@
+/** @jsxRuntime classic */
+/** @jsx jsx */
 import React from 'react';
+import { css, jsx } from '@emotion/react';
 import logo from './logo.svg';
 import './App.css';
 
+const AppStyle = css({
+  textAlign: 'right',
+});
+
 export default function App(): React.ReactElement {
   return (
-    <div className='App'>
+    <div css={AppStyle}>
       <header className='App-header'>
         <img src={logo} className='App-logo' alt='logo' />
         <p>

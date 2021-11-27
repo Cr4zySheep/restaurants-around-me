@@ -1,1 +1,1 @@
-export default function getRandomBullshit(): void {}
+export {};
