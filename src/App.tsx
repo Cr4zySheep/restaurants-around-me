@@ -1,31 +1,57 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import React from 'react';
-import { css, jsx } from '@emotion/react';
-import logo from './logo.svg';
-import './App.css';
+import { EmotionJSX } from '@emotion/react/types/jsx-namespace';
+import { jsx } from '@emotion/react';
+import useRestaurants from 'hooks/useRestaurants';
+import { Status } from 'hooks/usePosition';
 
-const AppStyle = css({
-  textAlign: 'right',
-});
+import Divider from 'components/Divider';
+import Header from 'components/Header';
+import MainContent from 'components/MainContent';
+import Footer from 'components/Footer';
+import Loading from 'components/Loading';
+import ErrorContent from 'components/ErrorContent';
 
-export default function App(): React.ReactElement {
+export default function App(): EmotionJSX.Element {
+  const { places, status } = useRestaurants();
+
   return (
-    <div css={AppStyle}>
-      <header className='App-header'>
-        <img src={logo} className='App-logo' alt='logo' />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className='App-link'
-          href='https://reactjs.org'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          Learn React
-        </a>
-      </header>
+    <div
+      css={theme => ({
+        padding: theme.spacing(4),
+        height: '100%',
+      })}
+    >
+      <div
+        css={theme => ({
+          display: 'flex',
+          flexDirection: 'column',
+          height: '100%',
+          width: '70%',
+          minWidth: 1280,
+          margin: 'auto',
+          background: 'white',
+          borderRadius: theme.spacing(2),
+          padding: theme.spacing(2),
+          paddingBottom: theme.spacing(1),
+        })}
+      >
+        <Header />
+
+        <Divider />
+
+        {(status === Status.PENDING || (status === Status.DONE && !places)) && (
+          <Loading />
+        )}
+
+        {status === Status.ERROR && <ErrorContent />}
+
+        {status === Status.DONE && places && <MainContent />}
+
+        <Divider styles={{ marginTop: 0, marginBottom: 8 }} />
+
+        <Footer />
+      </div>
     </div>
   );
 }

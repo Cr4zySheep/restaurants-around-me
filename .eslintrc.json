@@ -58,7 +58,7 @@
             "warn"
         ],
         "no-unused-vars": "off",
-        "@typescript-eslint/no-unused-vars": "error",
+        "@typescript-eslint/no-unused-vars": "warn",
         "@typescript-eslint/explicit-function-return-type": [
             "error",
             {
@@ -72,7 +72,8 @@
                 "unnamedComponents": "arrow-function"
             }
         ],
-        "@emotion/jsx-import": "error"
+        "@emotion/jsx-import": "error",
+        "no-undef": "off"
     },
     "settings": {
         "import/resolver": {
