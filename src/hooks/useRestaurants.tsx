@@ -7,27 +7,10 @@ import React, {
   useMemo,
   Dispatch,
 } from 'react';
-import axios from 'axios';
 
-import usePosition, { Position, Status } from './usePosition';
-
-interface Category {
-  id: string;
-  name: string;
-}
-
-export interface Place {
-  title: string;
-  id: string;
-  position: Position;
-  categories: Category[];
-  distance: number;
-  address: {
-    label: string;
-  };
-  foodTypes?: Array<{ id: string; name: string }>;
-  openingHours?: Array<{ isOpen: boolean; text: string[] }>;
-}
+import { discoverNearbyRestaurants, reverseGeocode } from 'services';
+import { Status, Position, Place } from 'helpers/types';
+import usePosition from './usePosition';
 
 interface RestaurantsContext {
   places: Place[] | undefined;
@@ -53,47 +36,24 @@ export default function useRestaurants(): RestaurantsContext {
   return context;
 }
 
-const HERE_API_KEY = 'XmoGq1LlLyTEX641rVdG6qfIWaaIlQjAWVKJIhSSdKw'; // eslint-disable-line
-
 export function RestaurantsProvider({
   children,
 }: {
   children: EmotionJSX.Element;
 }): EmotionJSX.Element {
   const { position, status } = usePosition();
-  const [address, setAddress] = useState();
+  const [address, setAddress] = useState<string>();
   const [places, setPlaces] = useState<Place[]>();
   const [selectedPlace, setSelectedPlace] = useState<Place>();
 
   useEffect(() => {
     if (!position) return;
 
-    axios
-      .get('https://revgeocode.search.hereapi.com/v1/revgeocode', {
-        params: {
-          apiKey: HERE_API_KEY,
-          at: `${position.lat},${position.lng}`,
-        },
-      })
-      .then(res => {
-        setAddress(res.data.items[0].title);
-      })
+    reverseGeocode(position)
+      .then(data => setAddress(data.title))
       .catch(console.log);
 
-    axios
-      .get('https://discover.search.hereapi.com/v1/discover', {
-        params: {
-          apiKey: HERE_API_KEY,
-          at: `${position.lat},${position.lng}`,
-          q: 'restaurants',
-          limit: 10,
-          lang: 'en-US',
-        },
-      })
-      .then(res => {
-        setPlaces(res.data.items);
-      })
-      .catch(console.log);
+    discoverNearbyRestaurants(position).then(setPlaces).catch(console.log);
   }, [position]);
 
   return (

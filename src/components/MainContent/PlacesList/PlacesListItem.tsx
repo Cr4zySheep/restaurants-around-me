@@ -2,7 +2,9 @@
 /** @jsx jsx */
 import { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 import { css, jsx, useTheme } from '@emotion/react';
-import useRestaurants, { Place } from 'hooks/useRestaurants';
+
+import useRestaurants from 'hooks/useRestaurants';
+import { Place } from 'helpers/types';
 
 export default function PlacesListItem({
   place,

@@ -2,8 +2,6 @@
 /** @jsx jsx */
 import { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 import { jsx } from '@emotion/react';
-import useRestaurants from 'hooks/useRestaurants';
-import { Status } from 'hooks/usePosition';
 
 import Divider from 'components/Divider';
 import Header from 'components/Header';
@@ -11,6 +9,8 @@ import MainContent from 'components/MainContent';
 import Footer from 'components/Footer';
 import Loading from 'components/Loading';
 import ErrorContent from 'components/ErrorContent';
+import useRestaurants from 'hooks/useRestaurants';
+import { Status } from 'helpers/types';
 
 export default function App(): EmotionJSX.Element {
   const { places, status } = useRestaurants();

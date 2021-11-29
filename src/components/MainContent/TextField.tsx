@@ -1,7 +1,7 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import React, { useEffect, useState } from 'react';
-import { css, Global, jsx, ThemeProvider } from '@emotion/react';
+import { useEffect, useState } from 'react';
+import { jsx } from '@emotion/react';
 import { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 
 /**

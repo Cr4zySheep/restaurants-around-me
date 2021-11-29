@@ -1,15 +1,6 @@
 import { useState, useEffect } from 'react';
 
-export interface Position {
-  lat: number;
-  lng: number;
-}
-
-export enum Status {
-  PENDING,
-  DONE,
-  ERROR,
-}
+import { Status, Position } from 'helpers/types';
 
 const options = {
   enableHighAccuracy: true,

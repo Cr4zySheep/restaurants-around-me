@@ -1,7 +1,6 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
-import React from 'react';
 import { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 
 export default function Footer(): EmotionJSX.Element {

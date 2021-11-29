@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import useRestaurants from 'hooks/useRestaurants';
 
-function DummyComponent(): null {
+function FlyOnSelect(): null {
   const map = useMap();
   const { selectedPlace } = useRestaurants();
 
@@ -33,11 +33,13 @@ export default function PlacesMap(): React.ReactElement | null {
         borderRadius: `4px 16px 16px 4px`,
       }}
     >
-      <DummyComponent />
+      <FlyOnSelect />
+
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
       />
+
       {places.map(place => (
         <Marker
           key={place.id}
