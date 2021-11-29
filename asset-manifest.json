@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/restaurants-around-me/static/css/main.8a9b7e45.chunk.css",
-    "main.js": "/restaurants-around-me/static/js/main.19fbaf53.chunk.js",
-    "main.js.map": "/restaurants-around-me/static/js/main.19fbaf53.chunk.js.map",
+    "main.css": "/restaurants-around-me/static/css/main.a7303f64.chunk.css",
+    "main.js": "/restaurants-around-me/static/js/main.ae0d6f80.chunk.js",
+    "main.js.map": "/restaurants-around-me/static/js/main.ae0d6f80.chunk.js.map",
     "runtime-main.js": "/restaurants-around-me/static/js/runtime-main.2d0db92d.js",
     "runtime-main.js.map": "/restaurants-around-me/static/js/runtime-main.2d0db92d.js.map",
-    "static/js/2.77745c14.chunk.js": "/restaurants-around-me/static/js/2.77745c14.chunk.js",
-    "static/js/2.77745c14.chunk.js.map": "/restaurants-around-me/static/js/2.77745c14.chunk.js.map",
+    "static/js/2.d2843194.chunk.js": "/restaurants-around-me/static/js/2.d2843194.chunk.js",
+    "static/js/2.d2843194.chunk.js.map": "/restaurants-around-me/static/js/2.d2843194.chunk.js.map",
     "index.html": "/restaurants-around-me/index.html",
-    "static/css/main.8a9b7e45.chunk.css.map": "/restaurants-around-me/static/css/main.8a9b7e45.chunk.css.map",
-    "static/js/2.77745c14.chunk.js.LICENSE.txt": "/restaurants-around-me/static/js/2.77745c14.chunk.js.LICENSE.txt",
+    "static/css/main.a7303f64.chunk.css.map": "/restaurants-around-me/static/css/main.a7303f64.chunk.css.map",
+    "static/js/2.d2843194.chunk.js.LICENSE.txt": "/restaurants-around-me/static/js/2.d2843194.chunk.js.LICENSE.txt",
     "static/media/logo.88692953.png": "/restaurants-around-me/static/media/logo.88692953.png"
   },
   "entrypoints": [
     "static/js/runtime-main.2d0db92d.js",
-    "static/js/2.77745c14.chunk.js",
-    "static/css/main.8a9b7e45.chunk.css",
-    "static/js/main.19fbaf53.chunk.js"
+    "static/js/2.d2843194.chunk.js",
+    "static/css/main.a7303f64.chunk.css",
+    "static/js/main.ae0d6f80.chunk.js"
   ]
 }
